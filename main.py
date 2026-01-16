@@ -9,6 +9,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 HF_TOKEN = os.getenv("HF_TOKEN")
+if not HF_TOKEN:
+    raise RuntimeError("HF_TOKEN is not set in environment variables")
 
 HF_URL = "https://router.huggingface.co/v1/chat/completions"
 
